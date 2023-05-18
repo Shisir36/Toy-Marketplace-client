@@ -1,0 +1,17 @@
+@keyframes pulsate {
+    0% {
+      border-color: #fff;
+    }
+    50% {
+      border-color: #ff00ff;
+    }
+    100% {
+      border-color: #fff;
+    }
+  }
+  
+  .input-field {
+    /* Your input field styles here */
+    border: 2px solid #fff;
+    animation: pulsate 2s infinite;
+  }

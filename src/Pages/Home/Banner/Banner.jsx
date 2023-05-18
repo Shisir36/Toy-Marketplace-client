@@ -20,10 +20,10 @@ const Banner = () => {
                         />
                     </div>
                     <div className="md:p-8 md:mr-0 mr-2">
-                        <h2 className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2">
+                        <h2 className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2 gFont">
                             Welcome to Toy Galaxy
                         </h2>
-                        <h3 className="md:text-6xl text-2xl md:mb-4 mb-2 font-bold font-mono">
+                        <h3 className="md:text-6xl text-2xl md:mb-4 mb-2 font-bold gFont">
                             Special Edition
                         </h3>
                         <p className="md:mb-4 mb-2 md:block hidden text-[#787878]">
@@ -52,13 +52,6 @@ const Banner = () => {
             </div>
             <div id="slide2" className="carousel-item relative w-full">
                 <div className="grid grid-cols-2 items-center h-full md:p-10">
-                    <div className="mr-10 w-full">
-                        <img
-                            src={bannerImage2}
-                            className="w-full md:w-auto md:h-full h-[250px]"
-                            alt="Slide 2"
-                        />
-                    </div>
                     <div className="md:p-8">
                         <h2 className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2">
                             Welcome to Toy Galaxy
@@ -73,6 +66,13 @@ const Banner = () => {
                         <button className="px-6 py-1 bg-[#4acdd5] rounded-lg text-white">
                             Buy Now
                         </button>
+                    </div>
+                    <div className="mr-10 w-full">
+                        <img
+                            src={bannerImage2}
+                            className="w-full md:w-auto md:h-full h-[250px]"
+                            alt="Slide 2"
+                        />
                     </div>
                 </div>
                 <div className="md:block hidden">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import wbLogo from "../../../assets/wb-logo/navbar1.png"
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -13,7 +13,7 @@ const Navbar = () => {
         <nav className="shadow-sm bg-[#4acdd5]">
             <div className="container mx-auto px-4 py-3 flex items-center justify-between">
                 <div>
-                 
+                    <h1 className=" text-yellow-400 text-4xl  p-1 font-bold">Toy<span className=" text-[#FF6799]">  Galaxy</span></h1>
                 </div>
 
                 {/* Mobile Nav */}
@@ -59,9 +59,31 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex md:items-center justify-center">
-                    <a href="/" className="mx-4 text-xl ">Home</a>
-                    <a href="/toys" className="mx-4 text-xl">All Toys</a>
-                    <a href="/blogs" className="mx-4 text-xl">Blogs</a>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                              isActive ? "text-[#FF6799] mx-4  text-xl font-bold" : "mx-4 font-bold text-xl text-white"
+                        }
+                    >
+                    Home
+                    </NavLink>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                              isActive ? "text-[#FF6799] mx-4  text-xl font-bold" : "mx-4 font-bold text-xl text-white"
+                        }
+                    >
+                    All Toys
+                    </NavLink>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                              isActive ? "text-[#FF6799] mx-4  text-xl font-bold" : "mx-4 font-bold text-xl text-white"
+                        }
+                    >
+                    Blogs
+                    </NavLink>
+                    
                 </div>
 
                 <div className="hidden md:flex items-center">
@@ -83,9 +105,31 @@ const Navbar = () => {
             {/* Mobile Nav Dropdown */}
             {isNavOpen && (
                 <div className="md:hidden ">
-                    <a href="/" className="block py-2 px-4">Home</a>
-                    <a href="/toys" className="block py-2 px-4">All Toys</a>
-                    <a href="/blogs" className="block py-2 px-4">Blogs</a>
+                       <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                              isActive ? "text-[#FF6799] mx-4  text-xl font-bold" : "mx-4 font-bold text-xl text-white"
+                        }
+                    >
+                    Home
+                    </NavLink>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                              isActive ? "text-[#FF6799] mx-4  text-xl font-bold" : "mx-4 font-bold text-xl text-white"
+                        }
+                    >
+                    All Toys
+                    </NavLink>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                              isActive ? "text-[#FF6799] mx-4  text-xl font-bold" : "mx-4 font-bold text-xl text-white"
+                        }
+                    >
+                    Blogs
+                    </NavLink>
+                    
                     <div className="flex gap-3 mt-4">
                         <div>
                             <img

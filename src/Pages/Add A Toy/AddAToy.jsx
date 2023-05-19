@@ -1,11 +1,11 @@
-
+import Swal from 'sweetalert2'
 const AddAToy = () => {
     
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Access form values using e.target.elements
-    const formData = {
+    const newToy = {
       pictureUrl: e.target.elements.pictureUrl.value,
       name: e.target.elements.name.value,
       sellerName: e.target.elements.sellerName.value,
@@ -16,12 +16,27 @@ const AddAToy = () => {
       quantity: e.target.elements.quantity.value,
       description: e.target.elements.description.value,
     };
-    console.log(formData);
-
+    fetch('http://localhost:5000/toys', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newToy)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Coffee Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
     // Perform your submit logic here with the formData object
-
     // Reset the form after submission
-    e.target.reset();
   };
 
   return (

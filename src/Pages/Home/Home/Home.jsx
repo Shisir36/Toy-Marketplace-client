@@ -1,4 +1,6 @@
+import AboutUs from "../AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
+import Offers from "../Offers/Offers";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import ToyGallery from "../ToyGallery/ToyGallery";
 
@@ -13,6 +15,10 @@ const Home = () => {
            <div>
             <ShopByCategory/>
            </div>
+           <div>
+            <AboutUs/>
+           </div>
+           <Offers/>
         </div>
     );
 };

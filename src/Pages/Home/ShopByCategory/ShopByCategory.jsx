@@ -1,251 +1,180 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import image from "../../../assets/ctg-pic/separator-img.png"
 const ShopByCategory = () => {
-    const [activeTab, setActiveTab] = useState(1);
+  const [Toys, setToys] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("Elephant-Toys");
 
-    const handleTabChange = (tabNumber) => {
-        setActiveTab(tabNumber);
-    };
+  useEffect(() => {
+    fetch(`http://localhost:5000/toys/${activeCategory}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setToys(result);
+      });
+  }, [activeCategory]);
 
-    return (
-        <div className="shop-by-category bg-gray-100 p-8">
-            <div className="text-center text-5xl gFont">
-            <h2>CATEGORIES PRODUCTS</h2>
-            <img src="https://templatebunch.com/Opencart/OPC003/OPCTB22/OPC01/catalog/view/theme/OPCTB22_01/stylesheet/TemplateBunch/images/separator-img.png" alt="" className="mx-auto mt-3" />
-            </div>
-            <div className="flex justify-center mb-6 mt-10 gap-6">
-                <button
-                    className={`tab-button ${activeTab === 1 ? "active bg-[#4acdd5] text-white" : ""
-                        } mr-4 px-3 py-2 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF6799] `}
-                    onClick={() => handleTabChange(1)}
-                >
-                    Teddy bear Toys
-                </button>
-                <button
-                    className={`tab-button ${activeTab === 2 ? "active bg-[#4acdd5] text-white" : ""
-                        } mr-4 px-3 py-2 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF6799]`}
-                    onClick={() => handleTabChange(2)}
-                >
-                    Horse Toys
-                </button>
-                <button
-                    className={`tab-button ${activeTab === 3 ? "active bg-[#4acdd5] text-white" : ""
-                        } px-3 py-2 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF6799]`}
-                    onClick={() => handleTabChange(3)}
-                >
-                    Elephant Toys
-                </button>
-            </div>
-            <div className="tab-content">
-                {activeTab === 1 && (
-                    <div className="sub-categories">
-                        <h3 className="text-center mb-4 text-2xl font-semibold">
-                            Teddy bear Toys
-                        </h3>
-                        <div className="grid grid-cols-2 gap-2">
-                            <div className="bg-white rounded-md shadow-md p-4">
-                                <div className="flex items-center gap-20">
-                                    <div className="w-full">
-                                        <img
-                                            src="https://images.unsplash.com/photo-1684316336336-6ecacd9b7a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
-                                            alt="Product Image"
-                                            className="w-full h-full rounded-md object-cover mr-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow w-full">
-                                        <div >
-                                            <div>
-                                                <h2 className="text-lg font-semibold">Name</h2>
-                                                <p className="text-gray-500">Price</p>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <div className="text-yellow-500">Rating</div>
-                                                <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p>Description</p>
-                                            <p>Additional details</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="text-center mt-4">
-                                    <button className="      px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">View Details</button>
-                                </div>
-                            </div>
-                            <div className="bg-white rounded-md shadow-md p-4">
-                                <div className="flex items-center gap-20">
-                                    <div className="w-full">
-                                        <img
-                                            src="https://images.unsplash.com/photo-1684316336336-6ecacd9b7a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
-                                            alt="Product Image"
-                                            className="w-full h-full rounded-md object-cover mr-4"
-                                        />
-                                    </div>
-                                    <div className="flex-grow w-full">
-                                        <div >
-                                            <div>
-                                                <h2 className="text-lg font-semibold">Name</h2>
-                                                <p className="text-gray-500">Price</p>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <div className="text-yellow-500">Rating</div>
-                                                <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p>Description</p>
-                                            <p>Additional details</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="text-center mt-4">
-                                    <button className="      px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-                {activeTab === 2 && (
-                      <div className="sub-categories">
-                      <h3 className="text-center mb-4 text-2xl font-semibold">
-                       Horse Toys
-                      </h3>
-                      <div className="grid grid-cols-2 gap-2">
-                          <div className="bg-white rounded-md shadow-md p-4">
-                              <div className="flex items-center gap-20">
-                                  <div className="w-full">
-                                      <img
-                                          src="https://images.unsplash.com/photo-1684316336336-6ecacd9b7a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
-                                          alt="Product Image"
-                                          className="w-full h-full rounded-md object-cover mr-4"
-                                      />
-                                  </div>
-                                  <div className="flex-grow w-full">
-                                      <div >
-                                          <div>
-                                              <h2 className="text-lg font-semibold">Name</h2>
-                                              <p className="text-gray-500">Price</p>
-                                          </div>
-                                          <div className="flex items-center">
-                                              <div className="text-yellow-500">Rating</div>
-                                              <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
-                                          </div>
-                                      </div>
-                                      <div>
-                                          <p>Description</p>
-                                          <p>Additional details</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="text-center mt-4">
-                                  <button className="      px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">View Details</button>
-                              </div>
-                          </div>
-                          <div className="bg-white rounded-md shadow-md p-4">
-                              <div className="flex items-center gap-20">
-                                  <div className="w-full">
-                                      <img
-                                          src="https://images.unsplash.com/photo-1684316336336-6ecacd9b7a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
-                                          alt="Product Image"
-                                          className="w-full h-full rounded-md object-cover mr-4"
-                                      />
-                                  </div>
-                                  <div className="flex-grow w-full">
-                                      <div >
-                                          <div>
-                                              <h2 className="text-lg font-semibold">Name</h2>
-                                              <p className="text-gray-500">Price</p>
-                                          </div>
-                                          <div className="flex items-center">
-                                              <div className="text-yellow-500">Rating</div>
-                                              <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
-                                          </div>
-                                      </div>
-                                      <div>
-                                          <p>Description</p>
-                                          <p>Additional details</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="text-center mt-4">
-                                  <button className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">View Details</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                )}
-                {activeTab === 3 && (
-                     <div className="sub-categories">
-                     <h3 className="text-center mb-4 text-2xl font-semibold">
-                     Elephant Toys
-                     </h3>
-                     <div className="grid grid-cols-2 gap-2">
-                         <div className="bg-white rounded-md shadow-md p-4">
-                             <div className="flex items-center gap-20">
-                                 <div className="w-full">
-                                     <img
-                                         src="https://images.unsplash.com/photo-1684316336336-6ecacd9b7a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
-                                         alt="Product Image"
-                                         className="w-full h-full rounded-md object-cover mr-4"
-                                     />
-                                 </div>
-                                 <div className="flex-grow w-full">
-                                     <div >
-                                         <div>
-                                             <h2 className="text-lg font-semibold">Name</h2>
-                                             <p className="text-gray-500">Price</p>
-                                         </div>
-                                         <div className="flex items-center">
-                                             <div className="text-yellow-500">Rating</div>
-                                             <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
-                                         </div>
-                                     </div>
-                                     <div>
-                                         <p>Description</p>
-                                         <p>Additional details</p>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div className="text-center mt-4">
-                                 <button className="      px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">View Details</button>
-                             </div>
-                         </div>
-                         <div className="bg-white rounded-md shadow-md p-4">
-                             <div className="flex items-center gap-20">
-                                 <div className="w-full">
-                                     <img
-                                         src="https://images.unsplash.com/photo-1684316336336-6ecacd9b7a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
-                                         alt="Product Image"
-                                         className="w-full h-full rounded-md object-cover mr-4"
-                                     />
-                                 </div>
-                                 <div className="flex-grow w-full">
-                                     <div >
-                                         <div>
-                                             <h2 className="text-lg font-semibold">Name</h2>
-                                             <p className="text-gray-500">Price</p>
-                                         </div>
-                                         <div className="flex items-center">
-                                             <div className="text-yellow-500">Rating</div>
-                                             <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
-                                         </div>
-                                     </div>
-                                     <div>
-                                         <p>Description</p>
-                                         <p>Additional details</p>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div className="text-center mt-4">
-                                 <button className="  px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">View Details</button>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                )}
-            </div>
+  const handleTabClick = (tabName) => {
+    setActiveCategory(tabName);
+  };
+
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabChange = (index) => {
+    setActiveTab(index);
+  };
+
+  return (
+    <div className="p-4 mt-10">
+        <div>
+        <h1 className="text-center font-bold text-5xl gFont">CATEGORIES <span className="text-slate-400">PRODUCTS</span></h1>
+        <img src={image} alt="" className="mx-auto mt-3" />
         </div>
-    );
+      <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
+        <TabList className="flex space-x-4 mt-10">
+          <Tab
+            onClick={() => handleTabClick("Horse-Toys")}
+            className={`p-2 rounded-md ${
+              activeTab === 0 ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-600"
+            }`}
+          >
+           Horse-Toys
+          </Tab>
+          <Tab
+            onClick={() => handleTabClick("Elephant-Toys")}
+            className={`p-2 rounded-md ${
+              activeTab === 1 ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-600"
+            }`}
+          >
+           Elephant-Toys
+          </Tab>
+          <Tab
+            onClick={() => handleTabClick("Teddy-Bear-Toys")}
+            className={`p-2 rounded-md ${
+              activeTab === 2 ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-600"
+            }`}
+          >
+            Teddy-Bear-Toys
+          </Tab>
+        </TabList>
+
+        <TabPanel>
+         <div  className="grid grid-cols-2 gap-8 mt-5">
+          {Toys?.map((Toy) => (
+            <div key={Toy?._id} className="bg-white rounded-md shadow-md p-4 border">
+              <div className="flex items-center gap-20">
+                <div className="w-1/2">
+                  <img
+                    src={Toy?.pictureUrl}
+                    alt="Product Image"
+                    className="w-full h-full rounded-md object-cover mr-4"
+                  />
+                </div>
+                <div className="flex-grow w-full">
+                  <div>
+                    <div>
+                      <h2 className="text-lg font-semibold">{Toy?.name}</h2>
+                      <p className="text-gray-500">{Toy?.price}</p>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="text-yellow-500">Rating</div>
+                      <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
+                    </div>
+                  </div>
+                  <div>
+                    <p>{Toy.description}</p>
+                    <p>Additional details</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-4">
+                <button className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">
+                  View Details
+                </button>
+              </div>
+            </div>
+          ))}
+          </div>
+        </TabPanel>
+        <TabPanel>
+        <div  className="grid grid-cols-2 gap-8 mt-5">
+        {Toys.map((Toy) => (
+            <div key={Toy._id} className="bg-white rounded-md shadow-md p-4 border">
+              <div className="flex items-center gap-20">
+                <div className="w-1/2">
+                  <img
+                    src={Toy.pictureUrl}
+                    alt="Product Image"
+                    className="w-full h-full rounded-md object-cover mr-4"
+                  />
+                </div>
+                <div className="flex-grow w-full">
+                  <div>
+                    <div>
+                      <h2 className="text-lg font-semibold">{Toy?.name}</h2>
+                      <p className="text-gray-500">{Toy?.price}</p>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="text-yellow-500">Rating</div>
+                      <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
+                    </div>
+                  </div>
+                  <div>
+                    <p>{Toy.description}</p>
+                    <p>Additional details</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-4">
+                <button className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">
+                  View Details
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        </TabPanel>
+        <TabPanel>
+        <div  className="grid grid-cols-2 gap-8 mt-5">
+        {Toys.map((Toy) => (
+            <div key={Toy._id} className="bg-white rounded-md shadow-md p-4 border">
+              <div className="flex items-center gap-20">
+                <div className="w-1/2">
+                  <img
+                    src={Toy.pictureUrl}
+                    alt="Product Image"
+                    className=" w-full h-full rounded-md object-cover mr-4"
+                  />
+                </div>
+                <div className="flex-grow w-full">
+                  <div>
+                    <div>
+                      <h2 className="text-lg font-semibold">{Toy?.name}</h2>
+                      <p className="text-gray-500">{Toy?.price}</p>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="text-yellow-500">Rating</div>
+                      <div className="ml-2">⭐️⭐️⭐️⭐️⭐️</div>
+                    </div>
+                  </div>
+                  <div>
+                    <p>{Toy.description}</p>
+                    <p>Additional details</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-4">
+                <button className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto">
+                  View Details
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        </TabPanel>
+      </Tabs>
+    </div>
+  );
 };
 
 export default ShopByCategory;

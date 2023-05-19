@@ -19,7 +19,7 @@ const ToyGallery = () => {
 
     return (
         <div className="mt-10">
-            <h2 className="text-center text-5xl font-bold mb-4 gFont ">Toys <span className=" text-slate-400">Pictures</span></h2> <hr className="border-black w-1/2 mx-auto mb-5 py-3" />
+            <h2 className="text-center text-5xl font-bold mb-4 gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text p-5 ">Toys Pictures</h2> <hr className="border-black w-1/2 mx-auto mb-5 py-3" />
             <Gallery photos={photos} onClick={openLightbox} />
             <ModalGateway>
                 {viewerIsOpen && (

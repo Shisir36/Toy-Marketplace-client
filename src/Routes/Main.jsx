@@ -7,11 +7,13 @@ import Blog from "../Pages/Blog/Blog";
 import AllToys from "../Pages/Home/AllToys/AllToys";
 import AddAToy from "../Pages/Add A Toy/AddAToy";
 import ToysDetails from "../Pages/Home/ToysDetails/ToysDetails";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main/>,
+      errorElement:<ErrorPage/>,
       children:
       [
         {
@@ -42,7 +44,8 @@ export const router = createBrowserRouter([
         {
             path:"/toysDetails/:id",
             element:<ToysDetails/>,
-        }
+        },
+        
       ]
     },
   ]);

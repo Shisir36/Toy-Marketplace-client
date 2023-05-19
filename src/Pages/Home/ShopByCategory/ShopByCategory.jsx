@@ -59,11 +59,11 @@ const ShopByCategory = () => {
         </TabList>
 
         <TabPanel>
-         <div  className="grid grid-cols-2 gap-8 mt-5">
+         <div  className="md:grid md:grid-cols-2 gap-8 mt-5">
           {Toys?.map((Toy) => (
             <div key={Toy?._id} className="bg-white rounded-md shadow-md p-4 border">
-              <div className="flex items-center gap-20">
-                <div className="w-1/2">
+              <div className="md:flex items-center gap-20">
+                <div className="md:w-1/2 w-full">
                   <img
                     src={Toy?.pictureUrl}
                     alt="Product Image"
@@ -97,11 +97,11 @@ const ShopByCategory = () => {
           </div>
         </TabPanel>
         <TabPanel>
-        <div  className="grid grid-cols-2 gap-8 mt-5">
+        <div  className="md:grid md:grid-cols-2 gap-8 mt-5">
         {Toys.map((Toy) => (
             <div key={Toy._id} className="bg-white rounded-md shadow-md p-4 border">
-              <div className="flex items-center gap-20">
-                <div className="w-1/2">
+              <div className="md:flex items-center gap-20">
+                <div className="md:w-1/2 w-full">
                   <img
                     src={Toy.pictureUrl}
                     alt="Product Image"
@@ -135,11 +135,11 @@ const ShopByCategory = () => {
         </div>
         </TabPanel>
         <TabPanel>
-        <div  className="grid grid-cols-2 gap-8 mt-5">
+        <div  className="md:grid md:grid-cols-2 gap-8 mt-5">
         {Toys.map((Toy) => (
-            <div key={Toy._id} className="bg-white rounded-md shadow-md p-4 border">
-              <div className="flex items-center gap-20">
-                <div className="w-1/2">
+            <div key={Toy._id} className="bg-white rounded-md shadow-md p-4 border mb-4">
+              <div className="md:flex items-center gap-20">
+                <div className="md:w-1/2 w-full">
                   <img
                     src={Toy.pictureUrl}
                     alt="Product Image"

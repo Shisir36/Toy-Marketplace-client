@@ -11,7 +11,7 @@ const AboutUs = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="bg-black bg-opacity-50 h-full md:p-28">
+      <div className="bg-black bg-opacity-50 h-full md:p-28 py-5">
         <div className="container mx-auto md:px-4">
           <div className="text-white w-full">
             <h2 className="md:text-5xl text-3xl text-center md:text-left font-extrabold mb-6 gFont">Welcome to <span className="text-[#4acdd5]">Toy</span> <span className="text-[#FF6799]">Galaxy</span> Kingdom</h2>
@@ -28,7 +28,7 @@ const AboutUs = () => {
               are designed to capture the magic of the animal kingdom.
             </p>
            </div>
-            <div className="mt-8 text-center md:text-left">
+            <div className="mt-8 text-center md:text-left ">
               <a
                 href="#shop"
                 className="bg-[#4acdd5] hover:bg-blue-600 text-white font-bold md:py-3 md:px-6 px-3 py-2 rounded-md shadow-lg transition duration-300 inline-block"

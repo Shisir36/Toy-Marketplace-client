@@ -21,6 +21,7 @@
     "react-images": "^1.2.0-beta.7",
     "react-multi-carousel": "^2.8.3",
     "react-photo-gallery": "^8.0.0",
+    "react-rating": "^2.0.5",
     "react-router-dom": "^6.11.2",
     "react-slick": "^0.29.0",
     "react-tabs": "^6.0.1",

@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { Authcontext } from '../../Provider/AuthProvider';
 const AddAToy = () => {
+    const{currentUser} = useContext(Authcontext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -9,7 +12,7 @@ const AddAToy = () => {
             pictureUrl: e.target.elements.pictureUrl.value,
             name: e.target.elements.name.value,
             sellerName: e.target.elements.sellerName.value,
-            sellerEmail: e.target.elements.sellerEmail.value,
+            email: e.target.elements.sellerEmail.value,
             subCategory: e.target.elements.subCategory.value,
             price: e.target.elements.price.value,
             rating: e.target.elements.rating.value,
@@ -64,6 +67,7 @@ const AddAToy = () => {
                             type="text"
                             id="name"
                             name="name"
+                            
                             className="w-full border border-gray-300 px-3 py-2 rounded"
                         />
                     </div>
@@ -75,6 +79,7 @@ const AddAToy = () => {
                             type="text"
                             id="sellerName"
                             name="sellerName"
+                            value={currentUser.displayName}
                             className="w-full border border-gray-300 px-3 py-2 rounded"
                         />
                     </div>
@@ -86,6 +91,7 @@ const AddAToy = () => {
                             type="email"
                             id="sellerEmail"
                             name="sellerEmail"
+                            value={currentUser.email}
                             className="w-full border border-gray-300 px-3 py-2 rounded"
                         />
                     </div>

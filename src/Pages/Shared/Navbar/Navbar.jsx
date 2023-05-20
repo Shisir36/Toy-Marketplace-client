@@ -90,6 +90,15 @@ const Navbar = () => {
                         </NavLink> : null
                     }
                     </div>
+                    <div>
+                        {
+                         currentUser ? <NavLink to="/myToys" className={({ isActive }) =>
+                           isActive ? "text-[#4acdd5] mx-4  text-xl font-bold" : "mx-4 font-bold text-xl "
+                       }>
+                        My Toys
+                       </NavLink> : null  
+                        }
+                    </div>
                     <NavLink
                         to="/blog"
                         className={({ isActive }) =>

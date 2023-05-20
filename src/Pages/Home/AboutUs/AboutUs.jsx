@@ -13,7 +13,7 @@ const AboutUs = () => {
       <div className="bg-black bg-opacity-50 h-full md:p-28 py-5">
         <div className="container mx-auto md:px-4">
           <div className="text-white w-full">
-            <h2 className="md:text-5xl text-3xl text-center md:text-left font-extrabold mb-6 gFont">Welcome to <span className="text-[#4acdd5]">Toy</span> <span className="text-[#FF6799]">Galaxy</span> Kingdom</h2>
+            <h2 className="md:text-5xl text-3xl text-center md:text-left font-extrabold mb-6 gFont">About <span className="text-[#4acdd5]">Toy</span> <span className="text-[#FF6799]">Galaxy</span> Kingdom</h2>
            <div className=" md:px-0 px-4">
            <p className="text-gray-100">
               At Animal Toy Kingdom, we are passionate about bringing joy and imagination to children

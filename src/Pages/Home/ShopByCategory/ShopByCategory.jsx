@@ -19,7 +19,6 @@ const ShopByCategory = () => {
     const handleTabClick = (tabName) => {
         setActiveCategory(tabName);
     };
-
     const [activeTab, setActiveTab] = useState(0);
 
     const handleTabChange = (index) => {

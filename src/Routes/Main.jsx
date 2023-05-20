@@ -8,6 +8,8 @@ import AllToys from "../Pages/Home/AllToys/AllToys";
 import AddAToy from "../Pages/Add A Toy/AddAToy";
 import ToysDetails from "../Pages/Home/ToysDetails/ToysDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "../privateRoutes/PrivateRoutes";
+import MyToys from "../Pages/MyToys/MyToys";
 
 export const router = createBrowserRouter([
     {
@@ -39,12 +41,16 @@ export const router = createBrowserRouter([
         },
         {
             path:"addAToy",
-            element:<AddAToy/>
+            element:<PrivateRoute><AddAToy/></PrivateRoute>
         },
         {
             path:"/toysDetails/:id",
-            element:<ToysDetails/>,
+            element:<PrivateRoute><ToysDetails/></PrivateRoute>,
         },
+        {
+          path:"/myToys",
+          element:<MyToys/>
+        }
         
       ]
     },

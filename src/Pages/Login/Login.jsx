@@ -1,9 +1,12 @@
 import {  FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { Authcontext } from '../../Provider/AuthProvider';
 const Login = () => {
     const [error, setError] = useState(null);
+    const location = useLocation()
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname||"/";
     const { signIn, signInWithGoogle } = useContext(Authcontext)
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -13,7 +16,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
-                //   navigate(from,{replace:true})
+                  navigate(from,{replace:true})
                 form.reset()
             })
             .catch(error => setError("Invalid email or password"))
@@ -23,7 +26,7 @@ const Login = () => {
         signInWithGoogle()
             .then((result) => {
                 const user = result.user;
-                //   navigate(from,{replace:true})
+                  navigate(from,{replace:true})
             })
             .catch((error) => {
                 console.log(error);

@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
     const { currentUser } = useContext(Authcontext)
     const [myToys, setMytoys] = useState([])
-    const url = `http://localhost:5000/toysdata/?email=${currentUser.email}`
+    const url = `http://localhost:5000/toysdata/?email=${currentUser?.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -14,70 +15,67 @@ const MyToys = () => {
         console.log(id);
         const proceed = confirm('Are you sure you want to delete?');
         if (proceed) {
-          fetch(`http://localhost:5000/toys/${id}`, {
-            method: 'DELETE'
-          })
-            .then(res => res.json())
-            .then(data => {
-              console.log(data);
-              if (data.deletedCount > 0) {
-                alert('Deleted successfully');
-                const remaining = myToys.filter(myToy => myToy._id !== id);
-                setMytoys(remaining);
-              }
+            fetch(`http://localhost:5000/toys/${id}`, {
+                method: 'DELETE'
             })
-            .catch(error => {
-              console.error('Error deleting toy:', error);
-            });
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('Deleted successfully');
+                        const remaining = myToys.filter(myToy => myToy._id !== id);
+                        setMytoys(remaining);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting toy:', error);
+                });
         }
     };
-    const handleConfirmToy = id => {
-        fetch(`http://localhost:5000/toys/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ status: 'confirm' })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    // update state
-                    const remaining = myToys.filter(myToy => myToy._id !== id);
-                    const updated = myToys.find(myToy => myToy._id === id);
-                    updated.status = 'confirm'
-                    const newToys = [updated, ...remaining];
-                    setMytoys(newToys);
-                }
-            })
-    }
-
     return (
-        <div>
-            <div className=" mx-auto h-screen">
-                <h1 className="text-3xl font-bold mb-4">All Toys</h1>
-
-                <table className="w-full bg-white border-2 ">
-                    <tbody className="w-full">
+        <div className="h-screen mt-8">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    <thead >
+                        <tr>
+                            <th>
+                                <label className=" text-2xl text-center">
+                                    Delete
+                                </label>
+                            </th>
+                            <th className=" text-2xl ">Picture</th>
+                            <th className=" text-2xl text-center">Quantity</th>
+                            <th className=" text-2xl text-center">Price</th>
+                            <th className=" text-2xl text-center">Description</th>
+                            <th className=" text-2xl">Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         {myToys.map((mytoy, index) => (
-                            <tr key={index} className="shadow-sm font-semibold">
-                                <td className="px-4 py-2 border-b">{mytoy.sellerName || '-'}</td>
-                                <td className="px-4 py-2 border-b">{mytoy.name}</td>
-                                <td className="px-4 py-2 border-b">{mytoy.subCategory}</td>
-                                <td className="px-4 py-2 border-b">{mytoy.price}</td>
-                                <td className="px-4 py-2 border-b text-center">{mytoy.quantity} pcs</td>
-                                <td className="px-4 py-2 border-b">
-                                    <img src={mytoy.pictureUrl} alt={mytoy.name} className="w-[78px] h-[78px] rounded-full" />
-                                </td>
-                                <td className="px-4 py-2 border-b text-center">
-                                    <button onClick={()=>handleConfirmToy(mytoy._id)} className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-bold py-2 px-3 rounded-md">
-                                        Update
+                            <tr key={index}>
+                                <th>
+                                    <button onClick={()=>handleToyDelete(mytoy._id)} className="btn btn-square btn-outline">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                     </button>
-                                    <button onClick={() => handleToyDelete(mytoy._id)} className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-bold py-2 px-3 rounded-md ml-2">
-                                        Delete
-                                    </button>
+                                </th>
+                                <td >
+                                    <div className="flex items-center space-x-3 ">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-14 h-14">
+                                                <img src={mytoy.pictureUrl} alt={mytoy.name} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{mytoy.name}</div>
+                                        </div>
+                                    </div>
                                 </td>
+                                <td className="text-center">{mytoy.quantity}</td>
+                                <td className="text-center">{mytoy.price}</td>
+                                <td className="text-center">{mytoy.description}</td>
+                                <th>
+                                    <Link to={`/updateToy/${mytoy._id}`} className="btn  btn-md">Update</Link>
+                                </th>
                             </tr>
                         ))}
                     </tbody>

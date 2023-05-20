@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllToys = () => {
   const allToys = useLoaderData();
@@ -10,7 +10,7 @@ const AllToys = () => {
     setSearchTerm(e.target.value);
   };
 
-  const handleSearchButtonClick = () => {
+  const handleSearchLinkClick = () => {
     const filteredResults = allToys.filter((toy) =>
       toy.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -30,7 +30,7 @@ const AllToys = () => {
           className="input input-bordered input-info px-5 py-2 mr-3"
         />
         <button
-          onClick={handleSearchButtonClick}
+          onClick={handleSearchLinkClick}
           className="bg-gradient-to-r from-rose-400 to-cyan-300 hover:bg-gradient-to-r hover:from-rose-600 hover:to-cyan-500 text-white font-bold py-1 px-4 rounded"
         >
           Search
@@ -66,9 +66,9 @@ const AllToys = () => {
                   />
                 </td>
                 <td className="px-4 py-2 border-b text-center">
-                  <button className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-bold py-2 px-3 rounded-md">
+                  <Link to={`/toysDetails/${toy._id}`} className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-bold py-2 px-3 rounded-md">
                     View Details
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}

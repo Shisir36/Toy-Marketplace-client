@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
         },
         {
           path:"/myToys",
-          element:<MyToys/>
+          element: <PrivateRoute> <MyToys/></PrivateRoute>
         },
         {
           path:"/updateToy/:id",

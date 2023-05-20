@@ -1,7 +1,5 @@
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import {  FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Lottie from "lottie-react";
-import login from "../../assets/login-lottie/106680-login-and-sign-up.json"
 import { useContext, useState } from 'react';
 import { Authcontext } from '../../Provider/AuthProvider';
 const Login = () => {

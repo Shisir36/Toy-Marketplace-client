@@ -235,7 +235,7 @@ const Navbar = () => {
                                         </button>
                                     ) : (
                                         <Link to="/login">
-                                            <button className="bg-[#FF6799] font-bold text-white rounded-md py-2 px-4 mr-2 mb-4">
+                                            <button className="bg-[#FF6799] font-bold text-white rounded-md py-2 px-4 mr-6 mb-4">
                                                 Login
                                             </button>
                                         </Link>

@@ -12,7 +12,7 @@ const Footer = () => {
     >
       <div className="container py-8 mx-auto px-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="pl-5">
+          <div className="md:pl-5">
             <img
               src={logo}
               className="w-20 h-20 rounded-sm"
@@ -101,6 +101,7 @@ const Footer = () => {
           <span className="text-[#FF6799] gFont">Galaxy</span> Ltd. All rights
           reserved.
         </div>
+        <h1 className="text-center">Created by <span className=" font-bold gFont">Al Mamun Shisir</span> </h1>
       </div>
     </footer>
   );

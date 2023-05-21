@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import { FaEye } from "react-icons/fa";
 
 const AllToys = () => {
   const allToys = useLoaderData();
@@ -78,13 +79,15 @@ const AllToys = () => {
                     className="w-[78px] h-[78px] rounded-full"
                   />
                 </td>
-                <td className="px-4 py-2 border-b text-center">
+                <td className="px-4 py-2 text-center">
+                  <button>
                   <Link
                     to={`/toysDetails/${toy._id}`}
-                    className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-bold py-2 px-3 rounded-md"
+                    className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-boldrounded-md"
                   >
-                    View Details
+                    <FaEye className=' text-black w-8 h-8'/>
                   </Link>
+                  </button>
                 </td>
               </tr>
             ))}

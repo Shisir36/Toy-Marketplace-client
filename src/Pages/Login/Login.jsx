@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { Authcontext } from '../../Provider/AuthProvider';
 const Login = () => {
-    const [error, setError] = useState(null);
+    const [loginerror, setError] = useState(null);
     const location = useLocation()
     const navigate = useNavigate();
     const from = location.state?.from?.pathname||"/";
@@ -40,6 +40,8 @@ const Login = () => {
                             Login
                         </h2>
                         <form onSubmit={handleSubmit} className="space-y-6 mt-10">
+                        {loginerror && <p className="text-red-500">{loginerror}</p>}
+
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                     Email address
@@ -97,9 +99,9 @@ const Login = () => {
                                 <div>
                                     <button
                                         onClick={handleGoogleLogin}
-                                        className="bg-red-500 btn border-none flex hover:bg-red-600 items-center py-3 gap-2 mx-auto mt-3 w-full"
+                                        className="bg-red-500 btn border-none  hover:bg-red-600  gap-2 mx-auto mt-3 w-full"
                                     >
-                                        <FaGoogle />
+                                        <FaGoogle></FaGoogle>
                                         <span>Sign in with Google</span>
                                     </button>
                                 </div>

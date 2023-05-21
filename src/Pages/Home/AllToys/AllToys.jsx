@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 const AllToys = () => {
   const allToys = useLoaderData();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage] = useState(20);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -19,8 +22,19 @@ const AllToys = () => {
 
   const dataToRender = filteredData.length > 0 ? filteredData : allToys;
 
+  const pageCount = Math.ceil(dataToRender.length / itemsPerPage);
+
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+  const displayedItems = dataToRender.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
   return (
-    <div className="py-8">
+    <div className="md:py-8 pt-5">
       <div className="flex justify-center mb-5">
         <input
           type="text"
@@ -35,7 +49,6 @@ const AllToys = () => {
         >
           Search
         </button>
-
       </div>
       <div className="overflow-x-auto md:px-7">
         <table className="w-full bg-white border-2">
@@ -51,7 +64,7 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody className="w-full">
-            {dataToRender.slice(0, 20).map((toy, index) => (
+            {displayedItems.map((toy, index) => (
               <tr key={index} className="shadow-md border-2 border-[#4acdd5] font-semibold">
                 <td className="px-4 py-2 border-b">{toy.sellerName || '-'}</td>
                 <td className="px-4 py-2 border-b">{toy.name}</td>
@@ -66,7 +79,10 @@ const AllToys = () => {
                   />
                 </td>
                 <td className="px-4 py-2 border-b text-center">
-                  <Link to={`/toysDetails/${toy._id}`} className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-bold py-2 px-3 rounded-md">
+                  <Link
+                    to={`/toysDetails/${toy._id}`}
+                    className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-bold py-2 px-3 rounded-md"
+                  >
                     View Details
                   </Link>
                 </td>
@@ -75,8 +91,30 @@ const AllToys = () => {
           </tbody>
         </table>
       </div>
+      <div className="flex justify-center mt-5">
+        {dataToRender.length > itemsPerPage && (
+          <ReactPaginate
+            previousLabel="Previous"
+            nextLabel="Next"
+            breakLabel="..."
+            breakClassName="mx-1"
+            pageCount={Math.ceil(dataToRender.length / itemsPerPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageChange}
+            containerClassName="flex items-center"
+            activeClassName="font-bold"
+            pageClassName="mx-1 cursor-pointer bg-white border border-gray-300 rounded-full px-3 py-2 hover:bg-gray-200"
+            previousClassName="mx-1 cursor-pointer bg-white border border-gray-300 rounded-full px-3 py-2 hover:bg-gray-200"
+            nextClassName="mx-1 cursor-pointer bg-white border border-gray-300 rounded-full px-3 py-2 hover:bg-gray-200"
+            disabledClassName="text-gray-400 cursor-not-allowed"
+          />
+        )}
+      </div>
     </div>
   );
 };
 
 export default AllToys;
+
+

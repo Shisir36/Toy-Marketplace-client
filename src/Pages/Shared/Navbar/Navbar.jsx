@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Authcontext } from "../../../Provider/AuthProvider";
 import { FaSignOutAlt } from "react-icons/fa";
+import logo from "../../../assets/wb-logo/logo-2.png"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
     const { currentUser, logout } = useContext(Authcontext);
@@ -19,10 +22,12 @@ const Navbar = () => {
 
     return (
         <nav className="shadow-sm " style={{ background: 'linear-gradient(to right, rgba(74, 205, 213, 0.1), rgba(255, 103, 153, 0.1))' }}>
+            <ToastContainer></ToastContainer>
             <div className="container mx-auto px-4 py-3 flex items-center justify-between " >
-                <div>
-                    <h1 className="text-[#4acdd5] text-4xl p-1 font-bold gFont">Toy<span className="text-[#FF6799]"> Galaxy</span></h1>
-                </div>
+                <Link className="flex items-center">
+                    <img src={logo} className=" w-14 h-14 rounded-sm" alt="" />
+                    <h1 className="text-[#4acdd5] text-4xl font-bold gFont">Toy<span className="text-[#FF6799]"> Galaxy</span></h1>
+                </Link>
 
                 {/* Mobile Nav */}
                 <div className="md:hidden">

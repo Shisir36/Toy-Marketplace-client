@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
         {
             path:"alltoys",
             element:<AllToys/>,
-            loader:() => fetch('http://localhost:5000/toys')
+            loader:() => fetch('https://toy-marketplace-server-eight-jade.vercel.app/toys')
         },
         {
             path:"addAToy",

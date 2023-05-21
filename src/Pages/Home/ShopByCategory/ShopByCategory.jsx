@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import image from '../../../assets/ctg-pic/separator-img.png';
@@ -6,14 +6,18 @@ import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Authcontext } from '../../../Provider/AuthProvider';
 
 const ShopByCategory = () => {
     const [Toys, setToys] = useState([]);
+    const { currentUser} = useContext(Authcontext)
     const [activeCategory, setActiveCategory] = useState('Horse-Toys');
     const [activeTab, setActiveTab] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/${activeCategory}`)
+        fetch(`https://toy-marketplace-server-eight-jade.vercel.app/toys/${activeCategory}`)
             .then((res) => res.json())
             .then((result) => {
                 setToys(result);
@@ -34,6 +38,7 @@ const ShopByCategory = () => {
     const handleTabChange = (index) => {
         setActiveTab(index);
     };
+    const notify = () => toast("You have to log in first to view details");
 
     return (
         <div className="p-4 mt-10">
@@ -110,6 +115,11 @@ const ShopByCategory = () => {
                                 </div>
                                 <div className="text-center mt-4">
                                     <Link
+                                    onClick={() => {
+                                        if (!currentUser) {
+                                            notify();
+                                        }
+                                    }}
                                         to={`/toysDetails/${Toy._id}`}
                                         className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto"
                                     >
@@ -161,6 +171,11 @@ const ShopByCategory = () => {
                                 </div>
                                 <div className="text-center mt-4">
                                     <Link
+                                     onClick={() => {
+                                        if (!currentUser) {
+                                            notify();
+                                        }
+                                     }}
                                         to={`/toysDetails/${Toy._id}`}
                                         className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto"
                                     >
@@ -211,7 +226,11 @@ const ShopByCategory = () => {
                                     </div>
                                 </div>
                                 <div className="text-center mt-4">
-                                    <Link
+                                    <Link onClick={() => {
+                                        if (!currentUser) {
+                                            notify();
+                                        }
+                                    }}
                                         to={`/toysDetails/${Toy._id}`}
                                         className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto"
                                     >

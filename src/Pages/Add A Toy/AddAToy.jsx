@@ -1,8 +1,9 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import Swal from 'sweetalert2'
 import { Authcontext } from '../../Provider/AuthProvider';
 const AddAToy = () => {
-    const{currentUser} = useContext(Authcontext)
+    const { currentUser } = useContext(Authcontext)
+    const formRef = useRef()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ const AddAToy = () => {
             description: e.target.elements.description.value,
         };
         console.log(newToy);
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-marketplace-server-eight-jade.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -37,6 +38,8 @@ const AddAToy = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
+                    formRef.current.reset();
+
                 }
             })
         // Perform your submit logic here with the formData object
@@ -47,7 +50,7 @@ const AddAToy = () => {
         <div className="md:container md:mx-auto md:px-4 md:py-8 mt-10">
             <h2 className="text-4xl font-bold mb-4 text-center gFont">Add <span className=" text-slate-400">Toy</span></h2>
             <div className="md:px-10 px-3">
-                <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4 shadow-md p-10 border border-[#4acdd5]">
+                <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-2 gap-4 shadow-md p-10 border border-[#4acdd5]">
                     <div>
                         <label htmlFor="pictureUrl" className="block mb-2">
                             Picture URL:
@@ -57,6 +60,7 @@ const AddAToy = () => {
                             id="pictureUrl"
                             name="pictureUrl"
                             className="w-full input input-bordered input-secondary px-3 py-2 rounded"
+                            required
                         />
                     </div>
                     <div>
@@ -67,7 +71,8 @@ const AddAToy = () => {
                             type="text"
                             id="name"
                             name="name"
-                            
+                            required
+
                             className="w-full input input-bordered input-secondary    px-3 py-2 rounded"
                         />
                     </div>
@@ -95,14 +100,20 @@ const AddAToy = () => {
                             className="w-full input input-bordered input-secondary    px-3 py-2 rounded"
                         />
                     </div>
-                    <div className='w-full border border-pink-400 md:px-3 md:py-2 rounded'>
-                        <h2 className='fornt-bold'>Sub-category:</h2><br />
-                        <select id="subCategory" name="subCategory" className=' border-2 mx-auto md:p-2'>
-                            <option value=""></option>
-                            <option value="Horse-Toys">Horse-Toys</option>
-                            <option value="Elephant-Toys">Elephant-Toys</option>
-                            <option value="Teddy-Bear-Toys">Teddy-Bear-Toys</option>
-                        </select>
+                    <div>
+                        <label className="block mb-2">
+                            Sub-category:
+                            <select
+                                className="block w-full input input-bordered input-secondary rounded-md mt-2 "
+                                required
+                                name='subCategory'
+                            >
+
+                                <option value="Teddy-Bear-Toys">Teddy-Bear-Toys</option>
+                                <option value="Elephant-Toys">Elephant-Toys</option>
+                                <option value="Horse-Toys">Horse-Toys</option>
+                            </select>
+                        </label>
                     </div>
                     <div>
                         <label htmlFor="price" className="block mb-2">

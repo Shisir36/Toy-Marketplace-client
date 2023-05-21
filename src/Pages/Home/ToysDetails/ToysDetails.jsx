@@ -9,7 +9,7 @@ const ToysDetails = () => {
     const [singleToy, setSingleToy] = useState('')
     const { id } = useParams()
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/id/${id}`)
+        fetch(`https://toy-marketplace-server-eight-jade.vercel.app/toys/id/${id}`)
             .then(res => res.json())
             .then(details => setSingleToy(details))
     },)

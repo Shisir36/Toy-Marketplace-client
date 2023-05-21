@@ -29,7 +29,7 @@ const Banner = () => {
                     </div>
                     <div className="md:p-8 md:mr-0 mr-2">
                         <h2
-                            className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2 gFont"
+                            className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2 "
                             data-aos="fade-up"
                             data-aos-duration="1000"
                         >

@@ -40,7 +40,7 @@ const Blog = () => {
 
   return (
     <div className="md:py-24 md:px-10 px-3 bg-gradient-to-t from-cyan-100 to-pink-100   ">
-        <h1 className="text-center py-10 text-5xl font-bold text-gray-600">Blog</h1>
+
      
       {blogs.map((blog) => (
         <div

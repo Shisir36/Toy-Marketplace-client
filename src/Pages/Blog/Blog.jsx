@@ -39,8 +39,10 @@ const Blog = () => {
   };
 
   return (
-    <div className="md:py-24 md:px-10 px-3 bg-gradient-to-t from-cyan-100 to-pink-100   ">
-
+    <div className="md:py-16 md:px-10 px-3 py-8 bg-gradient-to-t from-cyan-100 to-pink-100   ">
+     <h1 className="text-center font-bold md:text-5xl text-4xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text md:p-5 p-4 mb-10">
+                    Blog 
+                </h1>
      
       {blogs.map((blog) => (
         <div

@@ -24,8 +24,15 @@ const Offers = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-    };
-
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+            },
+          },
+        ],
+      };
     return (
         <section className="flex flex-col md:flex-row mb-2">
             <div className="w-full md:w-1/2">

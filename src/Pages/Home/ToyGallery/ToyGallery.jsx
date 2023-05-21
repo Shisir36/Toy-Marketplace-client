@@ -1,10 +1,11 @@
 
-import  { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import Gallery from "react-photo-gallery";
 import { photos } from "./Photos";
+import image from "../../../assets/ctg-pic/separator-img.png"
 const ToyGallery = () => {
-   const [currentImage, setCurrentImage] = useState(0);
+    const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
     const openLightbox = useCallback((event, { index }) => {
@@ -19,7 +20,12 @@ const ToyGallery = () => {
 
     return (
         <div className="mt-10">
-            <h2 className="text-center text-5xl font-bold mb-4 gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text p-5 ">Toys Pictures</h2> <hr className="border-black w-1/2 mx-auto mb-5 py-3" />
+            <div className=" mb-7">
+                <h1 className="text-center font-bold md:text-5xl text-3xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text md:p-5">
+                    Toys Pictures
+                </h1>
+                <img src={image} alt="" className="mx-auto " />
+            </div>
             <Gallery photos={photos} onClick={openLightbox} />
             <ModalGateway>
                 {viewerIsOpen && (

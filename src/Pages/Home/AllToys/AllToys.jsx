@@ -91,7 +91,7 @@ const AllToys = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-center mt-5">
+  <div className="flex justify-center mt-5">
         {dataToRender.length > itemsPerPage && (
           <ReactPaginate
             previousLabel="Previous"

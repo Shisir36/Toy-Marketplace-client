@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import image from "../../assets/ctg-pic/separator-img.png"
+import { FaPen, FaPenAlt, FaPenSquare, FaTrash } from "react-icons/fa";
 const MyToys = () => {
     const { currentUser } = useContext(Authcontext)
     const [myToys, setMytoys] = useState([])
@@ -47,29 +48,35 @@ const MyToys = () => {
         });
     };
     return (
-        <div className=" md:pb-20 md:mt-8">
+        <div className=" md:py-8 py-4">
+            <div>
+                <h1 className="text-center font-bold md:text-5xl text-4xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text md:p-5">
+                    My Toys
+                </h1>
+                <img src={image} alt="" className="mx-auto mb-7" />
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead >
                         <tr>
                             <th>
-                                <label className=" text-2xl text-center">
+                                <label className=" md:text-2xl text-xl text-center">
                                     Delete
                                 </label>
                             </th>
-                            <th className=" text-2xl ">Picture</th>
-                            <th className=" text-2xl text-center">Quantity</th>
-                            <th className=" text-2xl text-center">Price</th>
-                            <th className=" text-2xl text-center">Description</th>
-                            <th className=" text-2xl">Update</th>
+                            <th className=" md:text-2xl text-xl ">Picture</th>
+                            <th className=" md:text-2xl text-xl text-center">Quantity</th>
+                            <th className=" md:text-2xl text-xl text-center">Price</th>
+                            <th className=" md:text-2xl text-xl text-center">Description</th>
+                            <th className=" md:text-2xl text-xl">Update</th>
                         </tr>
                     </thead>
                     <tbody>
                         {myToys.map((mytoy, index) => (
                             <tr key={index}>
                                 <th>
-                                    <button onClick={() => handleToyDelete(mytoy._id)} className="btn btn-square btn-outline">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                    <button onClick={() => handleToyDelete(mytoy._id)} className="btn btn-square btn-outline  bg-white">
+                                       <FaTrash className="w-6 h-6 text-red-500"/>
                                     </button>
                                 </th>
                                 <td >
@@ -88,7 +95,9 @@ const MyToys = () => {
                                 <td className="text-center">{mytoy.price}</td>
                                 <td className="text-center">{mytoy.description}</td>
                                 <th>
-                                    <Link to={`/updateToy/${mytoy._id}`} className="btn  btn-md">Update</Link>
+                                    <Link to={`/updateToy/${mytoy._id}`} className="btn ml-5  btn-md hover:bg-green-400">
+                                       <FaPen className="w-6 h-6"/>
+                                       </Link>
                                 </th>
                             </tr>
                         ))}

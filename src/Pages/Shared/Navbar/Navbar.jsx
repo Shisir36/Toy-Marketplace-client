@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Authcontext } from "../../../Provider/AuthProvider";
 import { FaSignOutAlt } from "react-icons/fa";
@@ -18,8 +18,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="shadow-sm">
-            <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <nav className="shadow-sm " style={{ background: 'linear-gradient(to right, rgba(74, 205, 213, 0.1), rgba(255, 103, 153, 0.1))' }}>
+            <div className="container mx-auto px-4 py-3 flex items-center justify-between " >
                 <div>
                     <h1 className="text-[#4acdd5] text-4xl p-1 font-bold gFont">Toy<span className="text-[#FF6799]"> Galaxy</span></h1>
                 </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
                         exact
                         to="/"
                         className={({ isActive }) =>
-                            isActive ? "text-[#4acdd5] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
+                            isActive ? "text-[#31b1b8] mx-4 text-xl font-extrabold" : "mx-4 font-bold text-xl"
                         }
                     >
                         Home
@@ -87,7 +87,7 @@ const Navbar = () => {
                     <NavLink
                         to="/alltoys"
                         className={({ isActive }) =>
-                            isActive ? "text-[#4acdd5] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
+                            isActive ? "text-[#31b1b8] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
                         }
                     >
                         All Toys
@@ -97,7 +97,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/addAToy"
                                 className={({ isActive }) =>
-                                    isActive ? "text-[#4acdd5] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
+                                    isActive ? "text-[#31b1b8] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
                                 }
                             >
                                 Add a Toy
@@ -105,7 +105,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/myToys"
                                 className={({ isActive }) =>
-                                    isActive ? "text-[#4acdd5] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
+                                    isActive ? "text-[#31b1b8] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
                                 }
                             >
                                 My Toys
@@ -115,7 +115,7 @@ const Navbar = () => {
                     <NavLink
                         to="/blog"
                         className={({ isActive }) =>
-                            isActive ? "text-[#4acdd5] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
+                            isActive ? "text-[#31b1b8] mx-4 text-xl font-bold" : "mx-4 font-bold text-xl"
                         }
                     >
                         Blogs
@@ -149,84 +149,93 @@ const Navbar = () => {
 
             {/* Mobile Nav Dropdown */}
             {isNavOpen && (
-                <div className="md:hidden h-full">
-                    <div>
-                        <NavLink
-                            exact
-                            to="/"
-                            className={({ isActive }) =>
-                                isActive ? "text-[#4acdd5] mx-4 mb-3 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
-                            }
-                        >
-                            Home
-                        </NavLink>
-                    </div>
-                    <div className="mt-3">
-                        <NavLink
-                            to="/alltoys"
-                            className={({ isActive }) =>
-                                isActive ? "text-[#4acdd5] mx-4 mb-3 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
-                            }
-                        >
-                            All Toys
-                        </NavLink>
-                    </div>
-                    {currentUser && (
-                        <div className="mt-3">
-                            <NavLink
-                                to="/addAToy"
-                                className={({ isActive }) =>
-                                    isActive ? "text-[#4acdd5] mx-4 mb-3 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
-                                }
-                            >
-                                Add a Toy
-                            </NavLink>
-                        </div>
-                    )}
-                    {currentUser && (
-                        <div className="mt-3">
-                            <NavLink
-                                to="/myToys"
-                                className={({ isActive }) =>
-                                    isActive ? "text-[#4acdd5] mx-4 mb-3 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
-                                }
-                            >
-                                My Toys
-                            </NavLink>
-                        </div>
-                    )}
-                    <div className="mt-3">
-                        <NavLink
-                            to="/blog"
-                            className={({ isActive }) =>
-                                isActive ? "text-[#4acdd5] mx-4 mb-3 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
-                            }
-                        >
-                            Blogs
-                        </NavLink>
-                    </div>
-                    <div className="flex gap-3 mt-4">
-                        <div>
+                <div className="md:hidden h-full mx-auto flex flex-col items-center mt-10 "> {/* Added 'flex' and 'items-center' */}
+                    <div className="mx-auto text-center">
+                        <div className="ml-7 mb-5">
                             <img
-                                src={currentUser ? currentUser.photoURL : "https://w7.pngwing.com/pngs/304/275/png-transparent-user-profile-computer-icons-profile-miscellaneous-logo-monochrome.png"}
+                                src={
+                                    currentUser
+                                        ? currentUser.photoURL
+                                        : "https://w7.pngwing.com/pngs/304/275/png-transparent-user-profile-computer-icons-profile-miscellaneous-logo-monochrome.png"
+                                }
                                 alt="User"
                                 className="h-12 w-12 rounded-full ml-2"
                                 title={currentUser?.displayName}
                             />
                         </div>
                         <div>
-                            <div className="ml-2 ">
-                                {currentUser ? (
-                                    <button className="bg-red-500 font-bold text-white rounded-md py-2 px-4 mr-2" onClick={handleLogout}>
-                                        <FaSignOutAlt></FaSignOutAlt>
-                                    </button>
-                                ) : (
-                                    <Link to="/login">
-                                        <button className="bg-[#FF6799] font-bold text-white rounded-md py-2 px-4 mr-2">
-                                            Login
+                            <NavLink
+                                exact
+                                to="/"
+                                className={({ isActive }) =>
+                                    isActive ? "text-[#4acdd5] mx-4 mb-3 text-xl font-bold" : "mx-4 mb-5 font-bold text-xl"
+                                }
+                            >
+                                Home
+                            </NavLink>
+                        </div>
+                        <div className="mt-3">
+                            <NavLink
+                                to="/alltoys"
+                                className={({ isActive }) =>
+                                    isActive ? "text-[#4acdd5] mx-4 mb-3 text-xl font-bold" : "mx-4 mb-5 font-bold text-xl"
+                                }
+                            >
+                                All Toys
+                            </NavLink>
+                        </div>
+                        {currentUser && (
+                            <div className="mt-3">
+                                <NavLink
+                                    to="/addAToy"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-[#4acdd5] mx-4 mb-5 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
+                                    }
+                                >
+                                    Add a Toy
+                                </NavLink>
+                            </div>
+                        )}
+                        {currentUser && (
+                            <div className="mt-3">
+                                <NavLink
+                                    to="/myToys"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-[#4acdd5] mx-4 mb-5 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
+                                    }
+                                >
+                                    My Toys
+                                </NavLink>
+                            </div>
+                        )}
+                        <div className="mt-3">
+                            <NavLink
+                                to="/blog"
+                                className={({ isActive }) =>
+                                    isActive ? "text-[#4acdd5] mx-4 mb-5 text-xl font-bold" : "mx-4 mb-3 font-bold text-xl"
+                                }
+                            >
+                                Blogs
+                            </NavLink>
+                        </div>
+                        <div className="flex gap-3 mt-4">
+                            <div>
+                                <div className="ml-8">
+                                    {currentUser ? (
+                                        <button
+                                            className="bg-red-500 font-bold text-white rounded-md mb-4 py-2 px-5 mr-2"
+                                            onClick={handleLogout}
+                                        >
+                                            <FaSignOutAlt></FaSignOutAlt>
                                         </button>
-                                    </Link>
-                                )}
+                                    ) : (
+                                        <Link to="/login">
+                                            <button className="bg-[#FF6799] font-bold text-white rounded-md py-2 px-4 mr-2 mb-4">
+                                                Login
+                                            </button>
+                                        </Link>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>

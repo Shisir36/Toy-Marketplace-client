@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateToy = () => {
   const { id } = useParams();
@@ -31,6 +32,13 @@ const UpdateToy = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your Toy has been Updated',
+            showConfirmButton: false,
+            timer: 1500
+          })
           // Update state
           const remaining = updateToys.filter((updateToy) => updateToy._id !== id);
           const updated = updateToys.find((updateToy) => updateToy._id === id);
@@ -42,12 +50,13 @@ const UpdateToy = () => {
   };
 
   return (
-    <div className="mt-32 h-screen">
+    <div className="mt-5 mb-10 px-2">
+      <h1 className='text-center md:text-5xl text-4xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text p-10'>Update Toy</h1>
       {updateToys.map((updateToy) => (
         <form
           onSubmit={(e) => handleUpdateToy(e, updateToy._id)}
           key={updateToy._id}
-          className="w-1/2 mx-auto bg-gradient-to-br from-sky-500 to-pink-500 p-6 rounded-lg shadow-md"
+          className="md:w-1/2  w-full mx-auto bg-gradient-to-br from-sky-500 to-pink-500 p-6 md:rounded-lg shadow-md"
         >
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">

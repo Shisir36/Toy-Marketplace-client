@@ -16,7 +16,7 @@ const Offers = () => {
     };
 
     return (
-        <section className=" flex flex-col md:flex-row mt-10 mb-2">
+        <section className=" flex flex-col md:flex-row  mb-2">
             <div className="w-full md:w-1/2">
                 <div className="bg-black bg-opacity-100 h-full md:py-8 py-6" style={{
               backgroundImage:

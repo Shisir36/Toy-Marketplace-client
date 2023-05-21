@@ -1,7 +1,7 @@
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-100 text-gray-600">
+        <footer className=" text-gray-600"  style={{ background: 'linear-gradient(to right, rgba(74, 205, 213, 0.1), rgba(255, 103, 153, 0.1))' }}>
         <div className="container py-8 mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>

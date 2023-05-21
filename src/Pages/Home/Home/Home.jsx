@@ -7,7 +7,7 @@ import ToyGallery from "../ToyGallery/ToyGallery";
 
 const Home = () => {
     return (
-        <div className="mt-10">
+        <div >
             <Banner/>
             <div>
            <ToyGallery/>

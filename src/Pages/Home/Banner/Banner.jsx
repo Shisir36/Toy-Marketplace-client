@@ -88,7 +88,7 @@ const Banner = () => {
                     </div>
                     <div className="md:p-8">
                         <h2
-                            className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2"
+                            className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2 mr-2"
                             data-aos="fade-up"
                             data-aos-duration="1000"
                         >
@@ -147,7 +147,7 @@ const Banner = () => {
                     </div>
                     <div className="md:p-8">
                         <h2
-                            className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2"
+                            className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2 mr-2"
                             data-aos="fade-up"
                             data-aos-duration="1000"
                         >

@@ -1,8 +1,6 @@
 .login_form_container {
   position: relative;
-  width: 470px;
-  height: 550px;
-  background: #040717;
+  background: #ffffff73;
   padding-bottom: 70px;
   border-radius: 50px 5px;
   display: flex;
@@ -15,19 +13,19 @@
 
 .login_form_container::before {
   position: absolute;
-  width: 170%;
-  height: 170%;
+  width: 200%;
+  height: 200%;
   content: '';
-  background-image: conic-gradient(transparent, transparent, transparent, #ee00ff);
+  background-image: conic-gradient(transparent, transparent, #f8cdfaf5, #ff00e6ea);
   animation: rotate_border 6s linear infinite;
 }
 
 .login_form_container::after {
   position: absolute;
-  width: 170%;
-  height: 170%;
+  width: 200%;
+  height: 200%;
   content: '';
-  background-image: conic-gradient(transparent, transparent, transparent, #00ccff);
+  background-image: conic-gradient(transparent, transparent, #b5effff5, #00ccfff5);
   animation: rotate_border 6s linear infinite;
   animation-delay: -3s;
 }
@@ -36,6 +34,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -44,7 +43,7 @@
 .login_form {
   position: absolute;
   content: '';
-  background-color: #0c1022;
+  background-color: #fffffffc;
   border-radius: 50px 5px;
   inset: 5px;
   padding: 50px 40px;
@@ -52,7 +51,7 @@
   color: #00ccff;
 }
 
-.text{
+.text {
   font-size: 40px;
   font-weight: 600;
   text-align: center;
@@ -90,15 +89,15 @@
 
 #login_button {
   position: relative;
-  width: 365px;
   margin-left: 10px;
   margin-right: auto;
-  height: 40px;
+  height: 20px;
   transition: 1s;
-  margin-top: 70px;
+  margin-top: 60px;
+  margin-bottom: 70px;
 }
 
-#login_button a {
+#login_button .btn {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -109,7 +108,7 @@
   letter-spacing: 2px;
   border: 1px solid #00ccff;
   border-radius: 50px;
-  background-color: #0c1022;
+  background-color: #00ccff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,9 +133,7 @@
 .google_button {
   position: relative;
   width: 350px;
-  margin-left: 166px;
-  margin-right: auto;
-  margin-top: 30px;
+  margin-top: 38px;
   height: 40px;
   transition: 1s;
 }
@@ -150,32 +147,32 @@
   letter-spacing: 2px;
   border: 1px solid #00ccff;
   border-radius: 50px;
-  background-color: #0c1022;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .google_login_button:hover {
-     color: #ac1111;
+  color: #ac1111;
 }
 
-.line{
+.line {
   height: 1px;
   width: 100%;
-  background-color: #d4d4d4;
+  background-color: #c1c1c1;
   position: relative;
-   margin-top: 30px;
+  margin-top: 30px;
 
 }
 
-.line::before{
+.line::before {
   content: "Or";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #040717;
+  background-color: #00ccff;
   color: #ffffff;
   padding: 0 15px;
 }

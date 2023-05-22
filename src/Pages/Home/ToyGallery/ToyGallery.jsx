@@ -21,7 +21,7 @@ const ToyGallery = () => {
     return (
         <div className="mt-10">
             <div className=" mb-7">
-                <h1 className="text-center font-bold md:text-5xl text-3xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text md:p-5">
+                <h1 className="text-center font-bold md:text-5xl text-4xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text md:p-5">
                     Toys Pictures
                 </h1>
                 <img src={image} alt="" className="mx-auto " />

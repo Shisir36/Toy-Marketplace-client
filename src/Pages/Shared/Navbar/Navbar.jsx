@@ -25,11 +25,10 @@ const Navbar = () => {
     else if (location.pathname === "/blog") title = "Toy Galaxy | Blog"
     else if (location.pathname === "/login") title = "Toy Galaxy | Login"
     else if (location.pathname === "/signup") title = "Toy Galaxy | Signup"
-    else if (location.pathname === "/subCategories") title = "Toy Galaxy | Sub Categories"
-    else if (location.pathname === "/allToys") title = "Toy Galaxy | All Toys"
+    else if (location.pathname === "/alltoys") title = "Toy Galaxy | All Toys"
     else if (location.pathname === "/myToys") title = "Toy Galaxy | My Toys"
-    else if (location.pathname === "/addToy") title = "Toy Galaxy | Add a Toy"
-    else if (location.pathname === "/update") title = "Toy Galaxy | Update Toy"
+    else if (location.pathname === "/addAToy") title = "Toy Galaxy | Add a Toy"
+    else if (location.pathname === "/updateToy") title = "Toy Galaxy | Update Toy"
 
     document.title=title
 

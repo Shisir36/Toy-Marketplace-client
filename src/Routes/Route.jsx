@@ -11,6 +11,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "../privateRoutes/PrivateRoutes";
 import MyToys from "../Pages/MyToys/MyToys";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import ShopByCategory from "../Pages/Home/ShopByCategory/ShopByCategory";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
         {
           path:"/updateToy/:id",
           element:<UpdateToy/>,         
+        },
+        {
+          path:"shopBycategory",
+          element:<ShopByCategory/>
         }
         
       ]

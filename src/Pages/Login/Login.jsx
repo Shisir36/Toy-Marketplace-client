@@ -34,9 +34,12 @@ const Login = () => {
             });
     };
     return (
-        <div className="login_form_container mx-auto">
-            <form onSubmit={handleSubmit} className="login_form">
-                <h2 className='text'>Login</h2>
+        <div className="login_form_container mx-auto h-[600px] md:w-[480px]  w-[350]">
+            <form onSubmit={handleSubmit} className="login_form ">
+                <h2 className='text gFont'>Login</h2>
+                 {
+                    loginerror && <p className='text-red-500 test-sm'>{loginerror}</p>
+                 }
                 <div className="input_group">
                     <FaUser className='fa fa-user'></FaUser>
                     <input
@@ -57,18 +60,18 @@ const Login = () => {
                         autoComplete="off"
                     />
                 </div>
-                <button className="button_group" id="login_button">
-                    <a>Submit</a>
+                <button  className="button_group md:w-[365px] w-full" id="login_button">
+                    <input className='btn' type="submit" value="SignUp" />
                 </button>
                 <div className="fotter">
                     <a>Forgot Password?</a>
                     <Link to="/signup" >SingUp</Link>
                 </div>
                 <div className='line'></div>
-                <div className="google_button">
+                <div className="google_button md:ml-[172px] ml-[130px] ">
                     <button onClick={handleGoogleLogin} className="google_login_button px-2 py-2 ">
                        
-                      <FaGoogle className=' text-red-600 h-6 w-6'></FaGoogle>
+                      <FaGoogle className=' text-red-600 h-6 w-6 '></FaGoogle>
                     </button>
                 </div>
             </form>

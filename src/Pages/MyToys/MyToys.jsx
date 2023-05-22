@@ -116,7 +116,7 @@ const MyToys = () => {
                                 <td className="text-center">{mytoy.description}</td>
                                 <th>
                                     <Link to={`/updateToy/${mytoy._id}`} className="btn ml-5 btn-md hover:bg-green-400">
-                                        <FaPen className="w-6 h-6" />
+                                        <FaPen className="w-4 h-4" />
                                     </Link>
                                 </th>
                             </tr>

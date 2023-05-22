@@ -21,7 +21,7 @@ const AddAToy = () => {
             description: e.target.elements.description.value,
         };
         console.log(newToy);
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-marketplace-server-eight-jade.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -104,6 +104,7 @@ const AddAToy = () => {
                         <label className="block">
                             Sub-category:
                             <select
+                                 name='subCategory'
                                 className="block w-full input input-bordered input-secondary rounded-md mt-2 "
                                 required
                             >
@@ -119,7 +120,7 @@ const AddAToy = () => {
                             Price:
                         </label>
                         <input
-                            type="number"
+                            type="text"
                             id="price"
                             name="price"
                             className="w-full input input-bordered input-secondary    px-3 py-2 rounded"

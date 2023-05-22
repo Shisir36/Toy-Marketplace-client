@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Authcontext } from "../../../Provider/AuthProvider";
 import { FaSignOutAlt } from "react-icons/fa";
 import logo from "../../../assets/wb-logo/logo-2.png"
@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Navbar = () => {
     const { currentUser, logout } = useContext(Authcontext);
     const [isNavOpen, setIsNavOpen] = useState(false);
-
+    const location = useLocation()
     const handleNavToggle = () => {
         setIsNavOpen(!isNavOpen);
     };
@@ -19,6 +19,19 @@ const Navbar = () => {
             .then()
             .catch(error => console.log(error))
     };
+
+    let title;
+    if (location.pathname === "/") title = "Toy Galaxy | Home"
+    else if (location.pathname === "/blog") title = "Toy Galaxy | Blog"
+    else if (location.pathname === "/login") title = "Toy Galaxy | Login"
+    else if (location.pathname === "/signup") title = "Toy Galaxy | Signup"
+    else if (location.pathname === "/subCategories") title = "Toy Galaxy | Sub Categories"
+    else if (location.pathname === "/allToys") title = "Toy Galaxy | All Toys"
+    else if (location.pathname === "/myToys") title = "Toy Galaxy | My Toys"
+    else if (location.pathname === "/addToy") title = "Toy Galaxy | Add a Toy"
+    else if (location.pathname === "/update") title = "Toy Galaxy | Update Toy"
+
+    document.title=title
 
     return (
         <nav className="shadow-sm " style={{ background: 'linear-gradient(to right, rgba(74, 205, 213, 0.1), rgba(255, 103, 153, 0.1))' }}>

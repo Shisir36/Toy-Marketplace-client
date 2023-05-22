@@ -52,31 +52,31 @@ const AllToys = () => {
         </button>
       </div>
       <div className="overflow-x-auto md:px-7">
-        <table className="w-full bg-white border-2">
-          <thead className="text-2xl  border-2 border-[#4acdd5]">
+        <table className="w-full bg-white border-2 p-20">
+          <thead className="md:text-2xl text-xl border-2 border-[#4acdd5]">
             <tr>
-              <th className="px-4 py-2 border-b text-left">Seller</th>
-              <th className="px-4 py-2 border-b text-left">Toy Name</th>
-              <th className="px-4 py-2 border-b text-left">Sub-category</th>
-              <th className="px-4 py-2 border-b text-left">Price</th>
-              <th className="px-4 py-2 border-b text-center">Available Quantity</th>
-              <th className="px-4 py-2 border-b text-left">Image</th>
-              <th className="px-4 py-2 border-b text-center">Details</th>
+              <th className="px-4  py-2 border-b text-left">Seller</th>
+              <th className="px-4  py-2 border-b text-left">Toy Name</th>
+              <th className="px-4  py-2 border-b text-left">Sub-category</th>
+              <th className="px-5  py-2 border-b text-left">Price</th>
+              <th className="px-4  py-2 border-b text-center">Available Quantity</th>
+              <th className="px-4  py-2 border-b text-left">Image</th>
+              <th className="px-4  py-2 border-b text-center">Details</th>
             </tr>
           </thead>
-          <tbody className="w-full">
+          <tbody className="w-full ">
             {displayedItems.map((toy, index) => (
-              <tr key={index} className="shadow-md border-2 border-[#4acdd5] font-semibold">
-                <td className="px-4 py-2 border-b">{toy.sellerName || '-'}</td>
-                <td className="px-4 py-2 border-b">{toy.name}</td>
-                <td className="px-4 py-2 border-b">{toy.subCategory}</td>
-                <td className="px-4 py-2 border-b">{toy.price}</td>
-                <td className="px-4 py-2 border-b text-center">{toy.quantity}</td>
-                <td className="px-4 py-2 border-b">
+              <tr key={index} className="shadow-md text-slate-600 border-2 border-[#4acdd5] font-semibold text-sm md:text-xl">
+                <td className="px-5 py-5 border-b">{toy.sellerName || '-'}</td>
+                <td className="px-5 py-5 border-b">{toy.name}</td>
+                <td className="px-5 py-5 border-b">{toy.subCategory}</td>
+                <td className="px-6 py-5 border-b">{toy.price}</td>
+                <td className="px-4 py-5 border-b text-center">{toy.quantity}</td>
+                <td className=" px-4 md:py-2 border-b">
                   <img
                     src={toy.pictureUrl}
                     alt={toy.name}
-                    className="w-[78px] h-[78px] rounded-full"
+                    className="md:w-[78px] md:h-[78px] w-14 h-14 rounded-full"
                   />
                 </td>
                 <td className="px-4 py-2 text-center">

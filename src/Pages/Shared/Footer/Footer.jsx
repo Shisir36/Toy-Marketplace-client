@@ -63,7 +63,7 @@ const Footer = () => {
           <input
             type="email"
             placeholder="Subscribe to our newsletter"
-            className="rounded-md px-4 py-2 mr-4  focus:outline-none focus:ring-2 focus:ring-[#4acdd5]"
+            className="rounded-md px-4 py-2 md:mr-4 mr-3 focus:outline-none focus:ring-2 focus:ring-[#4acdd5]"
           />
           <button className="px-4 py-2 bg-[#4acdd5] hover:bg-[#FF6799] text-white rounded-md">
             Subscribe

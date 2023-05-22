@@ -13,19 +13,19 @@
 
 .login_form_container::before {
   position: absolute;
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
   content: '';
-  background-image: conic-gradient(transparent, transparent, #f8cdfaf5, #ff00e6ea);
+  background-image: conic-gradient(transparent, transparent, transparent, #ff00e6ea);
   animation: rotate_border 6s linear infinite;
 }
 
 .login_form_container::after {
   position: absolute;
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
   content: '';
-  background-image: conic-gradient(transparent, transparent, #b5effff5, #00ccfff5);
+  background-image: conic-gradient(transparent, transparent, transparent, #00ccfff5);
   animation: rotate_border 6s linear infinite;
   animation-delay: -3s;
 }
@@ -130,32 +130,6 @@
   text-shadow: 0 0 10px #00ccff;
 }
 
-.google_button {
-  position: relative;
-  width: 350px;
-  margin-top: 38px;
-  height: 40px;
-  transition: 1s;
-}
-
-.google_login_button {
-  position: absolute;
-  text-decoration: none;
-  z-index: 10;
-  cursor: pointer;
-  font-size: 22px;
-  letter-spacing: 2px;
-  border: 1px solid #00ccff;
-  border-radius: 50px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.google_login_button:hover {
-  color: #ac1111;
-}
 
 .line {
   height: 1px;

@@ -34,7 +34,7 @@ const Login = () => {
             });
     };
     return (
-        <div className="login_form_container mx-auto h-[600px] md:w-[480px]  w-[350]">
+        <div className="login_form_container mx-auto md:h-[600px] h-[600px] md:w-[480px]  w-[345px]">
             <form onSubmit={handleSubmit} className="login_form ">
                 <h2 className='text gFont'>Login</h2>
                  {
@@ -68,11 +68,12 @@ const Login = () => {
                     <Link to="/signup" >SingUp</Link>
                 </div>
                 <div className='line'></div>
-                <div className="google_button md:ml-[172px] ml-[130px] ">
-                    <button onClick={handleGoogleLogin} className="google_login_button px-2 py-2 ">
-                       
-                      <FaGoogle className=' text-red-600 h-6 w-6 '></FaGoogle>
+                <div className="google_button w-full mt-7">
+                    <div className='w-1/6 mx-auto' >
+                    <button onClick={handleGoogleLogin} className="google_login_button px-3 py-3 bg-slate-100 rounded-full ">
+                      <FaGoogle className=' text-red-600 h-6 w-6'></FaGoogle>
                     </button>
+                    </div>
                 </div>
             </form>
         </div>

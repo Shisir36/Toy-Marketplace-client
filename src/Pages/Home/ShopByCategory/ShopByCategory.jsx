@@ -89,7 +89,7 @@ const ShopByCategory = () => {
           </TabList>
         </div>
         <TabPanel>
-          <div className="md:grid md:grid-cols-2 gap-8 mt-10 md:px-1 px-6">
+          <div className="md:grid md:grid-cols-2 gap-8 mt-10 md:px-1 px-3">
             {toys.slice(0, showAll ? toys.length : 2).map((toy) => (
               <div
                 key={toy._id}
@@ -165,7 +165,7 @@ const ShopByCategory = () => {
           )}
         </TabPanel>
         <TabPanel>
-          <div className="md:grid md:grid-cols-2 md:px-1 px-6  gap-8 mt-10">
+          <div className="md:grid md:grid-cols-2 md:px-1 px-3  gap-8 mt-10">
             {toys.slice(0, showAll ? toys.length : 2).map((toy) => (
               <div
                 key={toy._id}
@@ -241,7 +241,7 @@ const ShopByCategory = () => {
           )}
         </TabPanel>
         <TabPanel>
-          <div className="md:grid md:grid-cols-2 md:px-1 px-6  gap-8 mt-10">
+          <div className="md:grid md:grid-cols-2 md:px-1 px-3  gap-8 mt-10">
             {toys.slice(0, showAll ? toys.length : 2).map((toy) => (
               <div
                 key={toy._id}

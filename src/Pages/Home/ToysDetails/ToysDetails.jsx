@@ -14,13 +14,13 @@ const ToysDetails = () => {
             .then(details => setSingleToy(details))
     },)
     return (
-        <div className="md:grid md:grid-cols-2 items-center lg:card-side bg-gradient-to-r from-pink-100 to-pink-50 md:p-20 p-10  ">
-      <div className="w-full">
-        <h2 className="md:text-5xl text-4xl mb-1 gFont bg-gradient-to-r from-black via-cyan-400 to-red-300 text-transparent bg-clip-text text-center md:text-left">
+        <div className="md:grid md:grid-cols-2  items-center lg:card-side bg-gradient-to-r from-pink-100 to-pink-50 md:p-20 p-10  ">
+      <div className="w-full md:my-24">
+        <h2 className="md:text-5xl text-4xl mb-2 gFont bg-gradient-to-r from-black via-cyan-400 to-red-300 text-transparent bg-clip-text text-center md:text-left">
           Toy: {singleToy.name}
         </h2>
         <h2 className="text-slate-600 md:text-2xl text-xl md:text-left text-center">Price: {singleToy.price}$</h2>
-        <p className="mt-5 text-slate-600 md:text-xl md:text-left text-center">
+        <p className="mt-1 text-slate-600 md:text-xl md:text-left text-center">
           {singleToy.description}
         </p>
         <div className="flex items-center ">
@@ -41,7 +41,7 @@ const ToysDetails = () => {
           {singleToy.email}
         </h2>
       </div>
-      <figure className="w-full">
+      <figure className="w-full mt-2">
         <img src={singleToy.pictureUrl} className=' rounded-md' alt="Album" />
       </figure>
     </div>

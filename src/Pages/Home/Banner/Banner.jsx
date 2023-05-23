@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import bannerImage1 from "../../../assets/banner-images/banner-image-4.png";
-import bannerImage2 from "../../../assets/banner-images/banner-image-2.png";
-import bannerImage3 from "../../../assets/banner-images/banner-img-3.png";
+import bannerImage2 from "../../../assets/banner-images/banner-image-5.png";
+import bannerImage3 from "../../../assets/banner-images/banner-image-1.png";
 
 const Banner = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -27,7 +27,7 @@ const Banner = () => {
                             alt="Slide 1"
                         />
                     </div>
-                    <div className="md:p-8 md:mr-0 mr-2">
+                    <div className="md:p-8 md:mr-0 mr-2 md:w-full">
                         <h2
                             className="text-white text-xl rounded-md bg-[#FF6799] md:p-2 md:w-1/2 text-center font-bold md:mb-4 mb-2 "
                             data-aos="fade-up"
@@ -108,7 +108,7 @@ const Banner = () => {
                             data-aos-duration="1000"
                             data-aos-delay="400"
                         >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at lectus massa. Fusce varius justo et ante rhoncus aliquet.
+                            Special toys are more than just playthings. They are companions that ignite imagination and bring joy to children of all ages. Our collection of special toys is carefully curated to offer unique and memorable experiences.
                         </p>
                         <button
                             className="px-6 py-1 bg-[#4acdd5] rounded-lg text-white"

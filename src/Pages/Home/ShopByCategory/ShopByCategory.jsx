@@ -89,11 +89,11 @@ const ShopByCategory = () => {
           </TabList>
         </div>
         <TabPanel>
-          <div className="md:grid md:grid-cols-2 gap-8 mt-10">
+          <div className="md:grid md:grid-cols-2 gap-8 mt-10 md:px-1 px-6">
             {toys.slice(0, showAll ? toys.length : 2).map((toy) => (
               <div
                 key={toy._id}
-                className="bg-white rounded-md shadow-md p-4 border md:mb-0 mb-4"
+                className="bg-white rounded-md shadow-xl p-4 border md:mb-0 mb-4"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -108,8 +108,8 @@ const ShopByCategory = () => {
                   <div className="flex-grow w-full">
                     <div>
                       <div>
-                        <h2 className="text-lg font-semibold">{toy.name}</h2>
-                        <p className="text-gray-500">{toy.price}</p>
+                        <h2 className="text-lg  font-semibold  gFont">{toy.name}</h2>
+                        <p className="text-gray-500">Price: {toy.price}$</p>
                       </div>
                       <div className="flex items-center">
                         <div className="text-yellow-500"> </div>
@@ -165,11 +165,11 @@ const ShopByCategory = () => {
           )}
         </TabPanel>
         <TabPanel>
-          <div className="md:grid md:grid-cols-2 gap-8 mt-10">
+          <div className="md:grid md:grid-cols-2 md:px-1 px-6  gap-8 mt-10">
             {toys.slice(0, showAll ? toys.length : 2).map((toy) => (
               <div
                 key={toy._id}
-                className="bg-white rounded-md shadow-md p-4 border md:mb-0 mb-4"
+                className="bg-white rounded-md shadow-xl p-4 border md:mb-0 mb-4"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -184,8 +184,8 @@ const ShopByCategory = () => {
                   <div className="flex-grow w-full">
                     <div>
                       <div>
-                        <h2 className="text-lg font-semibold">{toy.name}</h2>
-                        <p className="text-gray-500">{toy.price}</p>
+                        <h2 className="text-lg  font-semibold  gFont">{toy.name}</h2>
+                        <p className="text-gray-500">Price: {toy.price}$</p>
                       </div>
                       <div className="flex items-center">
                         <div className="text-yellow-500"> </div>
@@ -223,7 +223,7 @@ const ShopByCategory = () => {
             <div className="text-center mt-4">
               <button
                 onClick={handleSeeMore}
-                className="px-3 py-2 bg-[#FF6799] rounded-md mt-5 text-white hover:bg-[#4acdd5] mx-auto"
+                className="px-3 py-2 bg-[#FF6799] rounded-xl mt-5 text-white hover:bg-[#4acdd5] mx-auto"
               >
                 See more
               </button>
@@ -241,7 +241,7 @@ const ShopByCategory = () => {
           )}
         </TabPanel>
         <TabPanel>
-          <div className="md:grid md:grid-cols-2 gap-8 mt-10">
+          <div className="md:grid md:grid-cols-2 md:px-1 px-6  gap-8 mt-10">
             {toys.slice(0, showAll ? toys.length : 2).map((toy) => (
               <div
                 key={toy._id}
@@ -260,8 +260,8 @@ const ShopByCategory = () => {
                   <div className="flex-grow w-full">
                     <div>
                       <div>
-                        <h2 className="text-lg font-semibold">{toy.name}</h2>
-                        <p className="text-gray-500">{toy.price}</p>
+                        <h2 className="text-lg  font-semibold  gFont">{toy.name}</h2>
+                        <p className="text-gray-500">Price: {toy.price}$</p>
                       </div>
                       <div className="flex items-center">
                         <div className="text-yellow-500"> </div>

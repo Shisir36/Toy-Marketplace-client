@@ -39,16 +39,16 @@ const Blog = () => {
   };
 
   return (
-    <div className="md:py-16 md:px-10 px-3 py-8 bg-gradient-to-t from-cyan-100 to-pink-100   ">
+    <div className="md:py-16 md:px-10 px-3 py-8 bg-gradient-to-t from-cyan-50 to-pink-50   ">
      <h1 className="text-center font-bold md:text-5xl text-4xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text md:p-5 p-4 mb-10">
-                    Blog 
-                </h1>
+                    Blog <hr className="w-1/2 border-2 mx-auto mt-5 border-y-cyan-500"/>
+                </h1> 
      
       {blogs.map((blog) => (
         <div
           key={blog.id}
           tabIndex={0}
-          className={`collapse collapse-plus text-slate-50 bg-base-100 rounded-box  bg-gradient-to-r from-cyan-200  to-pink-300 container mx-auto border-2 ${
+          className={`collapse collapse-plus text-slate-50 bg-base-100 rounded-box  bg-gradient-to-r from-cyan-100  to-pink-200 container mx-auto border-2 ${
             activeId === blog.id ? "collapse-active" : ""
           }`}
           style={{ marginBottom: "1rem" }} 

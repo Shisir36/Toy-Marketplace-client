@@ -23,7 +23,9 @@ const Main = () => {
             />
         </div>
     ) : ( <div>
+        <div className="sticky top-0 z-10 bg-white">
         <Navbar/>
+        </div>
         <Outlet/>
         <Footer/>
         </div>

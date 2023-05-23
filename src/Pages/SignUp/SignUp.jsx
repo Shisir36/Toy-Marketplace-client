@@ -45,7 +45,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="hero-overlay bg-opacity-60 h-full w-full bg-cover" style={{ backgroundImage: `url(${photo})` }}>
+    <div className="hero-overlay bg-opacity-60 md:h-full w-full bg-cover" style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${photo})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
       <div className={`flex items-center justify-center min-h-screen transition-all ${formVisible ? 'transform translate-y-0 opacity-100 duration-1000' : 'transform -translate-y-full opacity-0 '}`}>
         <div className="md:w-full w-11/12 max-w-md px-6 py-11 bg-white rounded-md shadow-md" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
           <h2 className="mb-6 text-2xl font-bold text-center text-gray-900 title">Create Account</h2>

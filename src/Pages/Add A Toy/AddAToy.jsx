@@ -1,6 +1,7 @@
 import { useContext, useRef } from 'react';
 import Swal from 'sweetalert2'
 import { Authcontext } from '../../Provider/AuthProvider';
+import image from "../../assets/ctg-pic/separator-img.png"
 const AddAToy = () => {
     const { currentUser } = useContext(Authcontext)
     const formRef = useRef()
@@ -48,7 +49,12 @@ const AddAToy = () => {
 
     return (
         <div className="md:container md:mx-auto md:px-4 md:py-8 mt-10">
-            <h2 className="text-4xl font-bold mb-4 text-center gFont">Add <span className=" text-slate-400">Toy</span></h2>
+            <div>
+                <h1 className="text-center font-bold md:text-5xl text-4xl gFont bg-gradient-to-r from-black via-gray-600 to-slate-300 text-transparent bg-clip-text md:p-5">
+                    Add Toy
+                </h1>
+                <img src={image} alt="" className="mx-auto mb-6" />
+            </div>
             <div className="md:px-10 px-3">
                 <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-2 gap-4 shadow-md p-10 border border-[#4acdd5]">
                     <div>
@@ -104,7 +110,7 @@ const AddAToy = () => {
                         <label className="block">
                             Sub-category:
                             <select
-                                 name='subCategory'
+                                name='subCategory'
                                 className="block w-full input input-bordered input-secondary rounded-md mt-2 "
                                 required
                             >
@@ -120,7 +126,7 @@ const AddAToy = () => {
                             Price:
                         </label>
                         <input
-                            type="text"
+                            type="number"
                             id="price"
                             name="price"
                             className="w-full input input-bordered input-secondary    px-3 py-2 rounded"

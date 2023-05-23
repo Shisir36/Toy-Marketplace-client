@@ -59,7 +59,7 @@ const UpdateToy = () => {
           className="md:w-1/2  w-full mx-auto bg-gradient-to-br from-sky-500 to-pink-500 p-6 md:rounded-lg shadow-md"
         >
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+            <label className="block text-gray-700 text-base font-bold mb-2" htmlFor="price">
               Price
             </label>
             <input
@@ -71,7 +71,7 @@ const UpdateToy = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="quantity">
+            <label className="block text-gray-700 text-base font-bold mb-2" htmlFor="quantity">
               Available Quantity
             </label>
             <input
@@ -83,7 +83,7 @@ const UpdateToy = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+            <label className="block text-gray-700 text-base font-bold mb-2" htmlFor="description">
               Detail Description
             </label>
             <textarea

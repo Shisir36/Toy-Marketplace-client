@@ -35,7 +35,7 @@ const Login = () => {
     };
     return (
         <div className="login_form_container mx-auto md:h-[600px] h-[600px] md:w-[480px]  w-[345px]">
-            <form onSubmit={handleSubmit} className="login_form ">
+            <form onSubmit={handleSubmit} className="login_form">
                 <h2 className='text gFont'>Login</h2>
                  {
                     loginerror && <p className='text-red-500 test-sm'>{loginerror}</p>

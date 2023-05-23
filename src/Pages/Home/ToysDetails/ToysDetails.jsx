@@ -16,10 +16,10 @@ const ToysDetails = () => {
     return (
         <div className="md:grid md:grid-cols-2 items-center lg:card-side bg-gradient-to-r from-pink-100 to-pink-50 md:p-20 p-10  ">
       <div className="w-full">
-        <h2 className="md:text-6xl text-4xl gFont bg-gradient-to-r from-black via-cyan-500 to-red-300 text-transparent bg-clip-text text-center md:text-left">
+        <h2 className="md:text-5xl text-4xl mb-1 gFont bg-gradient-to-r from-black via-cyan-400 to-red-300 text-transparent bg-clip-text text-center md:text-left">
           Toy: {singleToy.name}
         </h2>
-        <h2 className="text-slate-600 md:text-2xl text-xl md:text-left text-center">Price: {singleToy.price}</h2>
+        <h2 className="text-slate-600 md:text-2xl text-xl md:text-left text-center">Price: {singleToy.price}$</h2>
         <p className="mt-5 text-slate-600 md:text-xl md:text-left text-center">
           {singleToy.description}
         </p>

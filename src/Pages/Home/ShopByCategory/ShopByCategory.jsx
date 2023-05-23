@@ -108,7 +108,7 @@ const ShopByCategory = () => {
                   <div className="flex-grow w-full">
                     <div>
                       <div>
-                        <h2 className="text-lg  font-semibold  gFont">{toy.name}</h2>
+                        <h2 className="md:text-lg text-xl font-semibold  gFont">{toy.name}</h2>
                         <p className="text-gray-500">Price: {toy.price}$</p>
                       </div>
                       <div className="flex items-center">

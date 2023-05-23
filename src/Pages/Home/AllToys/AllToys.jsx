@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import { FaEye } from "react-icons/fa";
+import { Authcontext } from '../../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const AllToys = () => {
   const allToys = useLoaderData();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const {currentUser} = useContext(Authcontext)
   const [itemsPerPage] = useState(20);
 
   const handleSearch = (e) => {
@@ -33,7 +36,7 @@ const AllToys = () => {
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
-
+  const notify = () => toast('You have to log in first to view details');
   return (
     <div className="md:py-8 pt-5">
       <div className="flex justify-center mb-5">
@@ -80,7 +83,11 @@ const AllToys = () => {
                   />
                 </td>
                 <td className="px-4 py-2 text-center">
-                  <button>
+                  <button  onClick={() => {
+                      if (!currentUser) {
+                        notify();
+                      }
+                    }} >
                   <Link
                     to={`/toysDetails/${toy._id}`}
                     className="bg-[#4acdd5] hover:bg-[#FF6799] text-white font-boldrounded-md"

@@ -76,7 +76,7 @@ const Login = () => {
                 </button>
                 <div className="fotter">
                     <a>Forgot Password?</a>
-                    <Link to="/signup" >SingUp</Link>
+                    <Link to="/signup" >Login</Link>
                 </div>
                 <div className='line'></div>
                 <div className="google_button w-full mt-7">
